@@ -303,18 +303,52 @@ btnResultado.addEventListener("click", function () {
                 oper == "+" ? caso = 4 : "");
     switch (caso) {
         case 1:
-            (n2==0 ? primerNumero.firstChild.nodeValue="Math Error": primerNumero.firstChild.nodeValue=(n1 / n2))
+            (n2 == 0 ? primerNumero.firstChild.nodeValue = "Math Error" : primerNumero.firstChild.nodeValue = (n1 / n2))
             break;
         case 2:
-            primerNumero.firstChild.nodeValue=(n1 * n2);
+            primerNumero.firstChild.nodeValue = (n1 * n2);
             break;
         case 3:
-            primerNumero.firstChild.nodeValue=(n1 - n2);
+            primerNumero.firstChild.nodeValue = (n1 - n2);
             break;
         case 4:
-            primerNumero.firstChild.nodeValue=(n1 + n2);
+            primerNumero.firstChild.nodeValue = (n1 + n2);
             break;
         default:
             break;
     }
 })
+btnOperarSumaResta.addEventListener("click", function () {
+    var hayOperador;
+    if (!operador.firstChild.nodeValue.includes("/") &&
+        !operador.firstChild.nodeValue.includes("x") &&
+        !operador.firstChild.nodeValue.includes("+") &&
+        !operador.firstChild.nodeValue.includes("-")) {
+        var hayOperador = 0;
+    } else {
+        var hayOperador = 1;
+    }
+    switch (hayOperador) {
+        case 0:
+            var nro;
+            if (primerNumero.firstChild.nodeValue.includes("-")) {
+                nro=primerNumero.firstChild.nodeValue.split("-");
+                primerNumero.firstChild.nodeValue=nro[1];
+                console.log(nro[1]);
+            } else {
+                primerNumero.firstChild.nodeValue="-" + primerNumero.firstChild.nodeValue;
+            }
+            break;
+        case 1:
+            var nro;
+            if (segundoNumero.firstChild.nodeValue.includes("-")) {
+                nro=segundoNumero.firstChild.nodeValue.split("-");
+                segundoNumero.firstChild.nodeValue=nro[1];
+                console.log(nro[1]);
+            } else {
+                segundoNumero.firstChild.nodeValue="-" + segundoNumero.firstChild.nodeValue;
+            }
+            break;
+
+    }
+});
