@@ -250,24 +250,24 @@ btnBorrar.addEventListener("click", function () {
         !operador.firstChild.nodeValue.includes("x") &&
         !operador.firstChild.nodeValue.includes("+") &&
         !operador.firstChild.nodeValue.includes("-")) {
-        var hayOperador = 0;
+        var caso = 0;
     } else {
-        var hayOperador = 1;
+        var caso = 1;
     }
-    switch (hayOperador) {
+    switch (caso) {
         case 0:
-            
             var lista = primerNumero.firstChild.nodeValue.split("");
-            lista[lista.length-1]="";
-            var cadena=lista.join("");
-            primerNumero.firstChild.nodeValue =cadena;
+            lista[lista.length - 1] = "";
+            var cadena = lista.join("");
+            primerNumero.firstChild.nodeValue = cadena;
             break;
         case 1:
             var lista = segundoNumero.firstChild.nodeValue.split("");
-            lista[lista.length-1]="";
-            var cadena=lista.join("");
-            segundoNumero.firstChild.nodeValue=cadena;
-            
+            lista[lista.length - 1] = "";
+            var cadena = lista.join("");
+            segundoNumero.firstChild.nodeValue = cadena;
+            console.log(lista.length);
+            (lista.length < 31 ? operador.firstChild.nodeValue = "" : "");
             break;
 
     }
@@ -289,3 +289,32 @@ btnC.addEventListener("click", function () {
     operador.firstChild.nodeValue = "";
     segundoNumero.firstChild.nodeValue = "";
 });
+btnResultado.addEventListener("click", function () {
+    var n1 = parseInt(primerNumero.firstChild.nodeValue);
+    var n2 = parseInt(segundoNumero.firstChild.nodeValue);
+    var oper = operador.firstChild.nodeValue;
+    primerNumero.firstChild.nodeValue = "";
+    operador.firstChild.nodeValue = "";
+    segundoNumero.firstChild.nodeValue = "";
+    var caso;
+    (oper == "/" ? caso = 1 :
+        oper == "x" ? caso = 2 :
+            oper == "-" ? caso = 3 :
+                oper == "+" ? caso = 4 : "");
+    switch (caso) {
+        case 1:
+            (n2==0 ? primerNumero.firstChild.nodeValue="Math Error": primerNumero.firstChild.nodeValue=(n1 / n2))
+            break;
+        case 2:
+            primerNumero.firstChild.nodeValue=(n1 * n2);
+            break;
+        case 3:
+            primerNumero.firstChild.nodeValue=(n1 - n2);
+            break;
+        case 4:
+            primerNumero.firstChild.nodeValue=(n1 + n2);
+            break;
+        default:
+            break;
+    }
+})
