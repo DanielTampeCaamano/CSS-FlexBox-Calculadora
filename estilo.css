@@ -43,9 +43,9 @@
 
 .ultimasFilas {
     display: flex;
-    border-radius: 10px;
-    height: 30px;
-    width: 30px;
+    border-radius: 30px;
+    height: 35px;
+    width: 35px;
     justify-content: center;
     align-items: center;
     background-color: rgb(70, 70, 90);
@@ -56,9 +56,9 @@
 
 .penultimaFila {
     display: flex;
-    border-radius: 50px;
-    height: 50px;
-    width: 30px;
+    border-radius: 30px;
+    height: 37px;
+    width: 37px;
     justify-content: center;
     align-items: center;
     background-color: red;
@@ -81,7 +81,7 @@
     border-radius: 20px;
     justify-content: space-evenly;
     align-items: center;
-    height: 70px;
+    height: 100px;
     background-color: rgb(80, 255, 210);
     color: black;
     column-span: 2;
